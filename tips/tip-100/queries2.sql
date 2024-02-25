@@ -1,0 +1,4 @@
+SELECT CURRENT_SESSION();
+
+-- replace w/ saved value
+select SYSTEM$ABORT_SESSION(22564207690227778);
