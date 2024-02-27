@@ -14,7 +14,7 @@ All demo code for my Udemy course **100 Snowflake Cost Optimization Techniques!*
 
 (4) Install and use a [*Python version 3.9*](https://www.python.org/downloads/release/python-390/) for our project (as latest versions are not usually installed in Snowflake).  
 
-(5) In a Terminal window from VSCode, create a *virtual environment* for this Python version. If you have multiple installations of Python on your computer, a path to python.exe may be required. My 3.9 version was installed in the *~\AppData\Local\Programs\Python\Python39\* folder, but yours could be elsewhere:  
+(5) In a Terminal window from VSCode, create a *virtual environment* for this Python version. If you have multiple installations of Python on your computer, a path to python.exe may be required. My 3.9 version was installed in the ~\AppData\Local\Programs\Python\Python39\ folder, but yours could be elsewhere:  
 
 **`~\AppData\Local\Programs\Python\Python39\python -m venv venv`**  
 

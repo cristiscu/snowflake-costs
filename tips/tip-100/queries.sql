@@ -1,17 +1,13 @@
-use schema SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL;
-use warehouse COMPUTE_WH;
-
-ALTER SESSION SET ABORT_DETACHED_QUERY = TRUE;
+-- ABORT_DETACHED_QUERY is False by default
 show parameters for session;
 
--- save value somewhere
-SELECT CURRENT_SESSION();
+ALTER SESSION SET ABORT_DETACHED_QUERY = TRUE;
+
+-- save the returned value somewhere
 SELECT CURRENT_SESSION();
 
-select /* { "query":"query96","streamId":0,"querySequence":1 } */  count(*)
-from store_sales
-   ,household_demographics
-   ,time_dim, store
+select count(*) as count7
+from store_sales, household_demographics, time_dim, store
 where ss_sold_time_sk = time_dim.t_time_sk
   and ss_hdemo_sk = household_demographics.hd_demo_sk
   and ss_store_sk = s_store_sk
@@ -20,4 +16,4 @@ where ss_sold_time_sk = time_dim.t_time_sk
   and household_demographics.hd_dep_count = 5
   and store.s_store_name = 'ese'
 order by count(*)
-    limit 100;
+limit 100;

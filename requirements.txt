@@ -1,4 +1,8 @@
 streamlit
+snowflake-connector-python
 snowflake-snowpark-python
 faker
 pandas
+plost
+sqlparse
+millify
