@@ -1,1 +1,0 @@
--- TODO: clone whole schema vs clone one single table

@@ -29,3 +29,5 @@ SELECT * FROM target_table;
 
 DROP TABLE stage_table;
 UNDROP TABLE stage_table;
+
+REMOVE @tests_stage/test.csv;

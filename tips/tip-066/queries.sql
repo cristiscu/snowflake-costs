@@ -1,6 +1,11 @@
 -- see https://docs.snowflake.com/en/user-guide/tutorials/query-acceleration-service
 use schema snowflake_sample_data.tpcds_sf10tcl;
 
+-- look for ALL QAS eligible queries in the account
+SELECT *
+FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_ACCELERATION_ELIGIBLE
+ORDER BY eligible_query_acceleration_time DESC;
+
 -- ~8min w/o QAS on XSmall WH
 SELECT d.d_year as year1, i.i_brand_id as brand_id1,
   i.i_brand as brand1, SUM(ss_net_profit) as profit1
@@ -32,11 +37,6 @@ SELECT PARSE_JSON(
   "upperLimitScaleFactor": 14
 }
 */
-
--- look for ALL QAS eligible queries in the account
-SELECT *
-FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_ACCELERATION_ELIGIBLE
-ORDER BY eligible_query_acceleration_time DESC;
 
 -- enable QAS in WH
 ALTER WAREHOUSE COMPUTE_WH SET
