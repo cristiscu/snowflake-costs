@@ -1,13 +1,16 @@
+explain
 select c1.c_custkey, c1.c_name, c1.c_nationkey, c1.c_acctbal
 from snowflake_sample_data.tpch_sf1.customer c1
 where c1.c_acctbal > 3000;
 
+explain using text
 select c1.c_name
 from snowflake_sample_data.tpch_sf1.customer c1
     join snowflake_sample_data.tpch_sf1.customer c2
     on c1.c_nationkey = c2.c_nationkey
 where c1.c_acctbal > 3000;
 
+explain
 select count(*)
 from snowflake_sample_data.tpcds_sf10tcl.store_sales,
     snowflake_sample_data.tpcds_sf10tcl.household_demographics,
