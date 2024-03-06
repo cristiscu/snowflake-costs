@@ -35,8 +35,8 @@ from snowflake.account_usage.access_history ah
     left join snowflake.account_usage.query_history qh
     on ah.query_id = qh.query_id,
 lateral flatten(input => objects_modified) om,
-    lateral flatten(input => om.value: "columns", outer => true) col,
-    lateral flatten(input => col.value:directSources, outer => true) src,
+lateral flatten(input => om.value: "columns", outer => true) col,
+lateral flatten(input => col.value:directSources, outer => true) src,
 lateral flatten(input => direct_objects_accessed, outer => true) obj
 order by ah.query_start_time;
 
