@@ -3,7 +3,7 @@ from utils import snowflake_connector as sf
 from utils import sql, charts, gui, processing
 
 st.title("Data Transfer")
-tabDT, tabS = st.tabs(["Data Transfer", "Storage"])
+tabTransfer, tabStorage = st.tabs(["Data Transfer", "Storage"])
 
 with st.sidebar:
     date_from, date_to = gui.date_selector()
@@ -31,36 +31,27 @@ with st.sidebar:
     credits_used_html += " were used"
     st.write(credits_used_html, unsafe_allow_html=True)
 
-with tabDT:
-    st.write("**Data Transfer** spend over time - Aggregated by day")
+with tabTransfer:
+    st.write("Data Transfer spend over time - Aggregated by day")
 
-    df_resampled = processing.resample_by_day(
-        df, date_column="START_TIME")
+    df_resampled = processing.resample_by_day(df, date_column="START_TIME")
     chart = charts.get_bar_chart(
-        df=df_resampled,
-        date_column="START_TIME",
-        value_column="BYTES_TRANSFERRED")
+        df=df_resampled, date_column="START_TIME", value_column="BYTES_TRANSFERRED")
     st.altair_chart(chart, use_container_width=True)
 
-with tabS:
-    st.write("**Storage** spend - Grouped by TRANSFER_TYPE - Top 10")
+with tabStorage:
+    st.write("Storage spend - Grouped by TRANSFER_TYPE - Top 10")
 
-    agg_config = {"BYTES_TRANSFERRED": "sum"}
-    df_grouped = (
-        df.groupby(["TRANSFER_TYPE", "TARGET_CLOUD", "TARGET_REGION"])
-        .agg(agg_config)
+    df_grouped = (df
+        .groupby(["TRANSFER_TYPE", "TARGET_CLOUD", "TARGET_REGION"])
+        .agg({"BYTES_TRANSFERRED": "sum"})
         .reset_index())
     df_grouped_top_10 = df_grouped.sort_values(
         by="BYTES_TRANSFERRED", ascending=False).head(10)
-
     df_grouped_top_10["BYTES_TRANSFERRED"] \
         = df_grouped_top_10["BYTES_TRANSFERRED"].apply(gui.pretty_print_bytes)
-
     st.dataframe(
         gui.dataframe_with_podium(
-            df_grouped_top_10[[
-                    "TRANSFER_TYPE",
-                    "TARGET_CLOUD",
-                    "TARGET_REGION",
-                    "BYTES_TRANSFERRED"]]),
+            df_grouped_top_10[["TRANSFER_TYPE",
+                "TARGET_CLOUD", "TARGET_REGION", "BYTES_TRANSFERRED"]]),
         width=600)

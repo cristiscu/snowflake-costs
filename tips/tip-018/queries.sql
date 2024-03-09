@@ -1,5 +1,5 @@
 select *
-from snowflake.account_usage.grant_to_roles;
+from snowflake.account_usage.grants_to_roles;
 
 select count(*)
 from snowflake.account_usage.query_history;
