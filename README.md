@@ -1,6 +1,6 @@
 # 100 Snowflake Cost Optimization Techniques
 
-All demo code for my Udemy course **100 Snowflake Cost Optimization Techniques!**. Refer to individual sections for local documentation.
+All demo code for my Udemy course **100 Snowflake Cost Optimization Techniques!**. Refer to individual sections for local documentation. The [list of all the tips is here](TIPS.md).
 
 ## Project Setup
 
@@ -37,7 +37,7 @@ username = cristiscu
 
 (10) Save your Snowflake account password in a *SNOWSQL_PWD* environment variable (that only you can see and have access to).  
 
-(11) For each individual tip, switch to that specific tip folder from *tips/*, than take one of the following actions, depending on that specific use case:
+(11) For each individual tip with sample code, switch to that specific tip folder from *tips/*, than take one of the following actions, depending on that specific use case:
 
 * Copy and paste SQL file contents into Snowsight SQL Worksheets. Or run the SQL statements directly from this project, if you installed the Snowflake Extension.
 * Execute Streamlit apps as local web applications, with commands like **`streamlit run app.py`**. Terminate the sessions with CTRL+C.
