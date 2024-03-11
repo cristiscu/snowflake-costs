@@ -2,9 +2,9 @@
 
 Here are all the 100 cost optimization tips or techniques, by category. 
 
-Those with SQL or Python source code in this repository (in the tips folder) are in bold.
+Those with SQL or Python source code in this repository (in the **tips/** folder) are in bold.
 
-## Virtual Warehouses
+## 1. Virtual Warehouses
 
 * **Tip #1: Larger Virtual Warehouses May Actually Cost You Less**  
 * Tip #2: Auto-Suspend Any Warehouse After One Minute  
@@ -17,7 +17,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #9: Use Economy Scaling Policy To Save Money**  
 * **Tip #10: When to Use Snowpark-Optimized Warehouses**  
 
-## Compute Workloads
+## 2. Compute Workloads
 
 * **Tip #11: Use Resource Monitors**  
 * **Tip #12: Use Account-Level Budgets**  
@@ -30,7 +30,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #19: Charts for Warehouse Monitoring**  
 * Tip #20: Revisit the Main Traps with Warehouses  
 
-## Snowflake Accounts
+## 3. Snowflake Accounts
 
 * Tip #21: What to Choose for a Free Trial Account  
 * Tip #22: When to Use a Free Trial Account  
@@ -43,7 +43,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #29: Adjust Default Values of Account-Level Parameters**  
 * Tip #30: Careful with Reader Accounts  
  
-## Snowflake Editions
+## 4. Snowflake Editions
 
 * Tip #31: When to Choose Enterprise over Standard Edition  
 * Tip #32: How to Avoid Multi-Cluster Warehouses  
@@ -56,7 +56,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * Tip #39: When to Choose the Business Critical Edition  
 * Tip #40: When to Choose the Virtual Private Snowflake (VPS) Edition  
 
-## Query Monitoring
+## 5. Query Monitoring
 
 * **Tip #41: Monitor Longest Running Queries**  
 * Tip #42: Interpret Query History  
@@ -69,7 +69,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #49: Change Query Schedules**  
 * **Tip #50: Parallel over Sequential Transfer and Processing**  
 
-## Query Optimization
+## 6. Query Optimization
 
 * **Tip #51: Use the Query Profile**  
 * **Tip #52: Use the Explain Statement**  
@@ -82,7 +82,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * Tip #59: Process Only New or Updated Data  
 * **Tip #60: Remote Spillage Optimization**  
  
-## Serverless Features
+## 7. Serverless Features
 
 * **Tip #61: Monitor the Cost of Automated Jobs**  
 * **Tip #62: Estimate Cost of Scheduled Tasks**  
@@ -95,7 +95,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #69: Reduce Database Replication Cost**  
 * **Tip #70: Estimate Cost of Hybrid Tables**  
 
-## Data Storage
+## 8. Data Storage
 
 * Tip #71: Use On-Demand Storage When You Don’t Know Your Spending Pattern  
 * **Tip #72: Copy and Keep Less Data**  
@@ -108,7 +108,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * **Tip #79: Drop Unused Tables and Other Objects**  
 * **Tip #80: Remove Old Files from Stage Areas**  
 
-## Data Transfer
+## 9. Data Transfer
 
 * **Tip #81: Data In is Free, Data Out is Expensive**  
 * Tip #82: Choose the Same Provider and Region Where Your Data Is  
@@ -121,7 +121,7 @@ Those with SQL or Python source code in this repository (in the tips folder) are
 * Tip #89: Use External Tables in a Data Lake  
 * Tip #90: Query Parquet Files instead of CSV  
  
-## Snowflake Apps
+## 10. Snowflake Apps
 
 * Tip #91: Estimate Cost Impact of Data Sharing in Snowflake  
 * **Tip #92: Estimate Cost Impact of Client and Server (Snowpark) Applications**  

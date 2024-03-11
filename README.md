@@ -37,7 +37,7 @@ username = cristiscu
 
 (10) Save your Snowflake account password in a *SNOWSQL_PWD* environment variable (that only you can see and have access to).  
 
-(11) Some code have been adapted from the [**Snowflake Usage Insights**](https://github.com/streamlit/snowflake-usage-app) open-source app and requires connection parameters in a .streamlit/secrets.toml file with the following format:
+(11) Some code has been adapted from the [**Snowflake Usage Insights**](https://github.com/streamlit/snowflake-usage-app) open-source app and requires connection parameters in a **.streamlit/secrets.toml** file with the following format:
 
 ```
 [sf_usage_app]
