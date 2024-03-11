@@ -1,3 +1,6 @@
+# adapted from the Snowflake Usage Insights open-source app
+# see https://github.com/streamlit/snowflake-usage-app
+
 import streamlit as st
 from utils import snowflake_connector as sf
 from utils import sql, charts, gui, processing

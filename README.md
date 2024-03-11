@@ -37,7 +37,17 @@ username = cristiscu
 
 (10) Save your Snowflake account password in a *SNOWSQL_PWD* environment variable (that only you can see and have access to).  
 
-(11) For each individual tip with sample code, switch to that specific tip folder from *tips/*, than take one of the following actions, depending on that specific use case:
+(11) Some code have been adapted from the [**Snowflake Usage Insights**](https://github.com/streamlit/snowflake-usage-app) open-source app and requires connection parameters in a .streamlit/secrets.toml file with the following format:
+
+```
+[sf_usage_app]
+account = "<Snowflake account>"
+user = "<username>"
+password = "<password>"
+warehouse = "<warehouse>"
+```
+
+(12) For each individual tip with sample code, switch to that specific tip folder from *tips/*, than take one of the following actions, depending on that specific use case:
 
 * Copy and paste SQL file contents into Snowsight SQL Worksheets. Or run the SQL statements directly from this project, if you installed the Snowflake Extension.
 * Execute Streamlit apps as local web applications, with commands like **`streamlit run app.py`**. Terminate the sessions with CTRL+C.
