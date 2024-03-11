@@ -1,32 +1,35 @@
--- enable replication
-use role orgadmin;
+-- [primary] create objects
+use role accountadmin;
+create or replace database database1;
+create or replace table orders(name string, amount int);
+insert into orders values ('John', 22), ('Mary', 10), ('Mark', 26);
 
+-- enable replication in accounts
+use role orgadmin;
 show organization accounts;
 
 select SYSTEM$GLOBAL_ACCOUNT_SET_PARAMETER(
-    'yictmgu.raa41860', 'ENABLE_ACCOUNT_DATABASE_REPLICATION', 'true');
+    'YICTMGU.RAA41860', 'ENABLE_ACCOUNT_DATABASE_REPLICATION', 'true');
 select SYSTEM$GLOBAL_ACCOUNT_SET_PARAMETER(
-    'yictmgu.xtractpro_std', 'ENABLE_ACCOUNT_DATABASE_REPLICATION', 'true');
+    'YICTMGU.XTRACTPRO_STD', 'ENABLE_ACCOUNT_DATABASE_REPLICATION', 'true');
 
--- create objects
 use role accountadmin;
+show replication accounts;
+    
+-- enable database replication
+alter database database1
+    enable replication to accounts YICTMGU.RAA41860, YICTMGU.XTRACTPRO_STD;
+show replication databases;
 
-create or replace database db_primary;
+-- [secondary] create secondary db as a replica
+use role accountadmin;
+create database database1 as replica of YICTMGU.RAA41860.database1;
+alter database database1 refresh;
 
-create or replace table orders(id int, name string, amount int);
-insert into orders values
-    (1, 'John', 22), (2, 'Mary', 10), (3, 'John', 26),
-    (4, 'Dan', 2), (5, 'Mary', 12), (6, 'Mark', 14),
-    (7, 'Mary', 22), (8, 'Mark', 5), (9, 'Dan', 44), (10, 'Dan', 19);
+-- monitor replication progress
+select *
+from table(information_schema.database_refresh_progress(database1))
+order by start_time;
 
-
-
-alter database db_primary enable replication to accounts aws_us_west_2.xtractpro_std;
-
-create database db_secondary as replica of aws_us_west_2.xtractpro_std.db_primary;
-
-alter database db_secondary refresh;
-
-create database db_secondary_cloned clone db_secondary;
-
-drop database db_secondary;
+select * 
+from table(information_schema.database_refresh_history(database1));
