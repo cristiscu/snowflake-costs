@@ -1,6 +1,8 @@
 # 100 Snowflake Cost Optimization Techniques
 
-All demo code for my Udemy course **100 Snowflake Cost Optimization Techniques!**. Refer to individual sections for local documentation. The [list of all the tips is here](TIPS.md).
+All demo code for my Udemy course **100 Snowflake Cost Optimization Techniques!**.
+
+The [list with all the tips is here](TIPS.md).
 
 ## Project Setup
 
